@@ -1,19 +1,20 @@
 // alert ('ciao')
 
-var kiloMetri = prompt('Quanti kilometri vorrai percorrere ?');
-var userAge = prompt('Quanti anni hai ?');
+const  kilometriPercorsi = parseInt( prompt('Quanti kilometri vuoi percorrere ?'));
+const  etaUtente = parseInt( prompt('Quanti anni hai ?'));
 
-let x = 20;
-let y = 0.21;
+var prezzoKilometri = 0.21;
 
-z = x * y;
+if (etaUtente < 18) { // 20% sconto
+    prezzoKilometri = prezzoKilometri * 0.8;
+    console.log ('minorenne');
+} else if (etaUtente >= 65) { // 40% sconto
+    prezzoKilometri = prezzoKilometri * 0.6;
+    console.log ('pensionato');
+}
 
-if (userAge < 18) {
-    discount = 20%;
-} else if (userAge > 65); {
-    discount = 40%;
-} 
+var prezzoTotale = prezzoKilometri * kilometriPercorsi;
 
-console.log (kiloMetri, userAge, z);
+console.log (kilometriPercorsi, etaUtente, prezzoTotale.toFixed(2));
 
-document.getElementById('prezzobiglietto'). innerHTML = z;
+document.getElementById('prezzototalebiglietto').innerHTML = prezzoTotale;
